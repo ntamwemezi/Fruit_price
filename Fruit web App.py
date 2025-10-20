@@ -13,8 +13,8 @@ import pickle
 #with open('My_saved_model.pkl', 'rb') as file:
     #model = pickle.load(file)
 #try:
-with open('My_saved_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+with open('My_saved_model.pkl','rb') as file:
+    My_model = pickle.load(file)
 #except Exception as e:
     #st.error(f"Error loading model: {e}")
 
@@ -56,6 +56,7 @@ if st.button("Predict"):
     prediction = model.predict(shaped_data)
 
     st.success(f"Prediction: {prediction[0]}")
+
 
 
 
