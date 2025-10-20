@@ -1,25 +1,16 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Oct 20 10:36:18 2025
-
-@author: pc
-"""
-
 import streamlit as st
 import numpy as np
 import pickle
 
 # Load the model
-#with open('My_saved_model.pkl', 'rb') as file:
-    #model = pickle.load(file)
-#try:
-with open('My_saved_model.pkl','rb') as file:
-    My_model = pickle.load(file)
-#except Exception as e:
-    #st.error(f"Error loading model: {e}")
+try:
+    with open('My_saved_model.pkl', 'rb') as file:
+        model = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
 st.title("🍓 Fruit Price Prediction 🍇")
-
 st.write("Enter fruit attributes to predict outcome")
 
 # Input fields
@@ -54,10 +45,4 @@ shaped_data = input_data.reshape(1, -1)
 # Predict
 if st.button("Predict"):
     prediction = model.predict(shaped_data)
-
-    st.success(f"Prediction: {prediction[0]}")
-
-
-
-
-
+    st.success(f"Prediction: ${prediction[0]:.2f}")
