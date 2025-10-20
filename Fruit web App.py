@@ -10,7 +10,7 @@ import numpy as np
 import pickle
 
 # Load the model
-with open(r'C:\Users\pc\Documents\fruit\My_saved_model.pkl', 'rb') as file:
+with open('My_saved_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 st.title("🍓 Fruit Price Prediction 🍇")
@@ -49,4 +49,5 @@ shaped_data = input_data.reshape(1, -1)
 # Predict
 if st.button("Predict"):
     prediction = model.predict(shaped_data)
+
     st.success(f"Prediction: {prediction[0]}")
