@@ -51,3 +51,4 @@ if st.button("Predict"):
     prediction = model.predict(shaped_data)
 
     st.success(f"Prediction: {prediction[0]}")
+
